@@ -1,0 +1,807 @@
+<!doctype html><<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pinky Goyal — Data Analyst</title>
+<meta name="description" content="Pinky Goyal is a data analyst who owns a production SQL Server database, builds Power BI reporting and is moving into machine learning.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#08080b; --card:#111115; --card2:#18181d; --line:#26262d; --text:#f4f4f7; --muted:#9b9ba8;
+  --lime:#c2f542; --violet:#8b7bff; --pink:#ff7ab8; --on-lime:#0b0d02; --glow:rgba(194,245,66,.10);
+  --head:'Plus Jakarta Sans',system-ui,sans-serif; --body:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',monospace;
+  --r:20px;
+}
+:root[data-theme="light"]{
+   --bg:#fbfbf8; --card:#ffffff; --card2:#f3f3ee; --line:#d9d9cf; --text:#0b0b0e; --muted:#4b4b57;
+  --lime:#3b6400; --violet:#4c3bd0; --pink:#c4255f; --on-lime:#ffffff; --glow:rgba(59,100,0,.09);
+}
+:root[data-theme="light"] body::before{opacity:.45}
+:root[data-theme="light"] body::after{opacity:.35}
+:root[data-theme="light"] .marq div{color:var(--text);opacity:.8}
+:root[data-theme="light"] .card{box-shadow:0 1px 2px rgba(20,20,30,.04),0 8px 24px -14px rgba(20,20,30,.12)}
+:root[data-theme="light"] .avail{box-shadow:0 1px 2px rgba(20,20,30,.05)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:hidden;scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:var(--bg);color:var(--text);font:400 1rem/1.65 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden;transition:background .3s,color .3s}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--lime);color:var(--on-lime)}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+
+/* ambient */
+body::before{content:"";position:fixed;inset:0;z-index:-2;
+  background:radial-gradient(720px 420px at 88% -6%,color-mix(in srgb,var(--violet) 22%,transparent),transparent 70%),
+             radial-gradient(620px 380px at 4% 6%,color-mix(in srgb,var(--lime) 12%,transparent),transparent 70%)}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(var(--line) 1px,transparent 1px);background-size:28px 28px;
+  -webkit-mask-image:linear-gradient(#000,transparent 65%);mask-image:linear-gradient(#000,transparent 65%)}
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--lime),var(--violet));z-index:300}
+
+/* nav */
+.nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:200;display:flex;align-items:center;gap:2px;padding:6px;
+  border:1px solid var(--line);border-radius:999px;background:color-mix(in srgb,var(--card) 82%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);white-space:nowrap}
+.brand{font:800 .95rem var(--head);padding:6px 14px 6px 8px;display:flex;align-items:center;gap:8px}
+.brand i{width:26px;height:26px;border-radius:8px;background:var(--lime);display:grid;place-items:center;color:var(--on-lime);font:800 .78rem var(--head);font-style:normal}
+.nav a.l{padding:8px 13px;border-radius:999px;font-size:.86rem;color:var(--muted);transition:.2s}
+.nav a.l:hover,.nav a.l.on{color:var(--text);background:var(--card2)}
+.nav .cta{background:var(--lime);color:var(--on-lime);padding:8px 16px;border-radius:999px;font:600 .85rem var(--body);margin-left:4px;transition:.2s}
+.nav .cta:hover{box-shadow:0 6px 22px -6px var(--lime)}
+#theme{border:0;background:transparent;color:var(--muted);width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:1rem;margin-left:2px}
+#theme:hover{color:var(--text);background:var(--card2)}
+
+/* hero */
+.hero{padding:170px 0 0;text-align:center}
+.avail{display:inline-flex;align-items:center;gap:9px;padding:7px 16px;border:1px solid var(--line);border-radius:999px;background:var(--card);font-size:.85rem;color:var(--muted)}
+.avail i{width:8px;height:8px;border-radius:50%;background:#34d399;animation:pl 2s infinite}
+@keyframes pl{0%{box-shadow:0 0 0 0 #34d39980}70%,100%{box-shadow:0 0 0 9px #34d39900}}
+h1{font:800 clamp(2.7rem,7vw,5.7rem)/1.03 var(--head);letter-spacing:-.04em;word-spacing:.08em;margin:26px auto 18px;max-width:15ch}
+h1 .w{display:inline-block;opacity:0;transform:translateY(34px);filter:blur(8px);animation:wi .8s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes wi{to{opacity:1;transform:none;filter:none}}
+h1 .hl{background:linear-gradient(95deg,var(--lime),var(--violet) 85%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.typed{font:500 1.05rem var(--mono);color:var(--muted);min-height:1.8em}
+.typed b{color:var(--lime);font-weight:500}
+.typed .cur{display:inline-block;width:2px;height:1.05em;background:var(--lime);margin-left:3px;vertical-align:-3px;animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.hero .sub{font-size:1.1rem;color:var(--muted);max-width:60ch;margin:18px auto 0}
+.hero .sub b{color:var(--text);font-weight:500}
+.btns{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:12px;font:600 .94rem var(--body);border:1px solid var(--line);background:var(--card);transition:.25s;cursor:pointer;color:var(--text)}
+.btn:hover{transform:translateY(-2px);border-color:var(--muted)}
+.btn.p{background:var(--lime);color:var(--on-lime);border-color:var(--lime)}
+.btn.p:hover{box-shadow:0 12px 36px -8px var(--lime)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;max-width:880px;margin:64px auto 0;border:1px solid var(--line);border-radius:var(--r);background:var(--card);overflow:hidden}
+.stat{padding:24px 18px;border-right:1px solid var(--line)}
+.stat:last-child{border:0}
+.stat b{display:block;font:800 2.3rem/1 var(--head);letter-spacing:-.04em}
+.stat span{display:block;margin-top:8px;color:var(--muted);font-size:.84rem}
+.marq{overflow:hidden;border-block:1px solid var(--line);margin-top:70px;padding:16px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.marq div{display:flex;gap:44px;width:max-content;animation:mq 40s linear infinite;font:500 .9rem var(--mono);color:var(--muted);white-space:nowrap}
+.marq span::before{content:"◆";color:var(--lime);margin-right:44px;font-size:.55rem;vertical-align:2px}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* section system */
+section{padding:80px 0}
+.sh{margin-bottom:44px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font:500 .76rem var(--mono);color:var(--lime);letter-spacing:.14em;text-transform:uppercase}
+.eyebrow::before{content:"";width:22px;height:1.5px;background:var(--lime)}
+.sh h2{font:800 clamp(2rem,4.2vw,3.1rem)/1.06 var(--head);letter-spacing:-.025em;word-spacing:.08em;margin-top:12px}
+.sh p{color:var(--muted);max-width:42ch;font-size:.95rem}
+
+/* card base */
+.card{position:relative;padding:28px;border:1px solid var(--line);border-radius:var(--r);background:var(--card);overflow:hidden;transition:border-color .3s,transform .35s}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),var(--glow),transparent 65%);opacity:0;transition:opacity .3s;pointer-events:none}
+.card:hover{border-color:color-mix(in srgb,var(--lime) 38%,var(--line))}
+.card:hover::before{opacity:1}
+.card>*{position:relative}
+.lbl{font:500 .72rem var(--mono);color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+.card h3{font:700 1.2rem/1.3 var(--head);letter-spacing:-.005em;word-spacing:.06em;margin-bottom:8px}
+.card p{color:var(--muted);font-size:.93rem}
+.card p b,.card li b{color:var(--text);font-weight:500}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{padding:4px 11px;border:1px solid var(--line);border-radius:999px;font:500 .74rem var(--mono);color:var(--muted);background:var(--card2);transition:.2s}
+.chip:hover{color:var(--text);border-color:var(--lime)}
+.chip.a{color:var(--lime);border-color:color-mix(in srgb,var(--lime) 35%,var(--line))}
+.tag{display:inline-flex;align-items:center;gap:7px;font:500 .7rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--lime);margin-bottom:10px}
+.tag i{width:6px;height:6px;border-radius:50%;background:currentColor}
+.tag.v{color:var(--violet)}.tag.p{color:var(--pink)}.tag.o{color:#fbbf24}
+
+/* about */
+.about{display:grid;grid-template-columns:1.25fr 1fr;gap:18px}
+.about .txt p{font-size:1.02rem;margin-bottom:16px}
+.hl-list{display:grid;gap:10px;margin-top:22px;list-style:none}
+.hl-list li{display:flex;gap:12px;align-items:flex-start;color:var(--muted);font-size:.95rem}
+.hl-list li::before{content:"";flex:none;width:8px;height:8px;margin-top:.55em;border-radius:3px;background:var(--lime)}
+.profile{display:flex;flex-direction:column;gap:20px}
+.pr-top{display:flex;gap:16px;align-items:center}
+.avatar{width:72px;height:72px;border-radius:22px;background:linear-gradient(135deg,var(--lime),var(--violet));display:grid;place-items:center;font:800 1.7rem var(--head);color:var(--on-lime);flex:none}
+.pr-top h3{margin:0;font-size:1.3rem}
+.pr-top span{color:var(--muted);font-size:.9rem}
+.kv div{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid var(--line);font-size:.9rem}
+.kv div:last-child{border:0}
+.kv span{color:var(--muted)}.kv b{font-weight:500;text-align:right}
+.soc{display:flex;gap:10px;margin-top:auto;flex-wrap:wrap}
+.soc a{flex:1;min-width:90px;text-align:center;padding:10px;border:1px solid var(--line);border-radius:12px;background:var(--card2);font-size:.88rem;transition:.2s}
+.soc a:hover{border-color:var(--lime);color:var(--lime)}
+
+/* projects */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.filters button{padding:9px 18px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--muted);font:500 .85rem var(--body);cursor:pointer;transition:.25s}
+.filters button:hover{color:var(--text);border-color:var(--muted)}
+.filters button.on{background:var(--lime);color:var(--on-lime);border-color:var(--lime)}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.pc{display:flex;flex-direction:column;padding:22px}
+.pc .chips{margin-top:auto;padding-top:16px}
+.pc.plan{border-style:dashed;background:transparent}
+.pc.hide{display:none}
+.pc.pop{animation:pop .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes pop{from{opacity:0;transform:scale(.95) translateY(10px)}}
+.pc.big{grid-column:1/-1;display:grid;grid-template-columns:1.05fr 1fr;gap:34px;align-items:center;padding:30px}
+.pc.big h3{font-size:1.75rem}
+.pc.big p{font-size:.98rem}
+.pc.big .chips{padding-top:0;margin-top:18px}
+.pc.big .viz{height:280px;margin:0}
+.viz{height:150px;margin-bottom:18px;border-radius:14px;background:var(--card2);border:1px solid var(--line);overflow:hidden;display:block;flex:none}
+.viz svg{width:100%;height:100%;display:block}
+.viz .s{stroke:var(--muted);fill:none;stroke-width:1.4}
+.viz .a{stroke:var(--lime);fill:none;stroke-width:2;stroke-linecap:round}
+.viz .fa{fill:var(--lime)}.viz .fv{fill:var(--violet)}.viz .fp{fill:var(--pink)}.viz .fo{fill:#fbbf24}
+.viz text{fill:var(--text);font:500 10px var(--mono)}
+.pc.big .viz text{font-size:13px}
+.viz .d{stroke-dasharray:4 4}
+.viz .flow{stroke-dasharray:5 5;animation:fl 1.2s linear infinite}
+@keyframes fl{to{stroke-dashoffset:-10}}
+.viz .pulse{animation:pu 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes pu{50%{transform:scale(1.25);opacity:.7}}
+.pc:hover .viz .pulse{animation-duration:1s}
+.btn.sm{padding:10px 18px;font-size:.88rem;margin-top:20px;align-self:flex-start}
+
+/* experience */
+.tl{position:relative;padding-left:34px;display:grid;gap:18px}
+.tl::before{content:"";position:absolute;left:8px;top:10px;bottom:10px;width:2px;background:linear-gradient(var(--lime),var(--violet) 70%,transparent)}
+.tl .card::after{content:"";position:absolute;left:-33px;top:34px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--lime)}
+.job{display:grid;grid-template-columns:200px 1fr;gap:30px}
+.job .when{font:500 .78rem var(--mono);color:var(--lime);letter-spacing:.04em}
+.job h3{margin:10px 0 2px;font-size:1.3rem}
+.job .org{color:var(--muted);font-size:.9rem}
+.job ul{list-style:none;display:grid;gap:12px}
+.job li{padding-left:22px;position:relative;color:var(--muted);font-size:.94rem}
+.job li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;border-radius:3px;background:var(--lime)}
+
+/* demo */
+.dash{padding:22px}
+.dtools{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-end;margin-bottom:18px}
+.dtools label{display:grid;gap:6px;font:500 .7rem var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.dtools select{background:var(--card2);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:9px 12px;font:400 .9rem var(--body);text-transform:none;letter-spacing:0}
+.dtools input[type=range]{accent-color:var(--lime);width:140px}
+.dtools button{border:1px solid var(--line);background:var(--card2);color:var(--text);padding:9px 16px;border-radius:10px;font:500 .85rem var(--body);cursor:pointer}
+.dtools button:hover{border-color:var(--lime)}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:14px}
+.kpi{padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--card2)}
+.kpi small{font:500 .68rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.kpi b{display:block;font:800 1.6rem var(--head);letter-spacing:-.03em;margin-top:2px}
+.charts{display:grid;grid-template-columns:2fr 1fr;gap:12px}
+.cbox{border:1px solid var(--line);border-radius:14px;padding:14px;height:290px;display:flex;flex-direction:column;min-width:0;background:var(--card2)}
+.cbox:nth-child(3){grid-column:1/-1;height:250px}
+.cbox h4{font:500 .72rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.cbox canvas{flex:1;min-height:0}
+.note{font:400 .76rem var(--mono);color:var(--muted);margin-top:14px}
+
+/* case study */
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:70px}
+.ba .card{display:flex;flex-direction:column}
+.lab2{font:600 .74rem var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.bad{color:#ff6b6b}.good{color:#34d399}
+pre.blk{padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--card2);font:400 .76rem/1.75 var(--mono);overflow-x:auto;color:var(--muted);margin:12px 0 14px;flex:1}
+pre.blk b{color:var(--lime);font-weight:500}
+.csh{margin-top:80px}
+
+/* skills */
+.skx{display:grid;grid-template-columns:290px 1fr;gap:18px;align-items:start}
+.tabs{display:grid;gap:8px;position:sticky;top:96px}
+.tab{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:15px 16px;border:1px solid var(--line);border-radius:16px;background:var(--card);color:var(--muted);font:600 .95rem var(--head);cursor:pointer;transition:.25s}
+.tab .ti{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:var(--card2);flex:none;transition:.25s}
+.tab .ti svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tab small{display:block;font:400 .74rem var(--mono);color:var(--muted);margin-top:1px}
+.tab:hover{color:var(--text);border-color:var(--muted)}
+.tab.on{color:var(--text);border-color:var(--lime);background:color-mix(in srgb,var(--lime) 9%,var(--card))}
+.tab.on .ti{background:var(--lime);color:var(--on-lime)}
+.panel{padding:30px}
+.panel .ph{margin-bottom:22px}
+.panel .ph h3{font-size:1.5rem;margin-bottom:6px}
+.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.tile{padding:16px 18px;border:1px solid var(--line);border-radius:14px;background:var(--card2);opacity:0;transform:translateY(12px);animation:tin .5s cubic-bezier(.2,.7,.2,1) forwards;transition:border-color .25s,transform .25s}
+.tile:hover{border-color:var(--lime);transform:translateY(-3px)}
+.tile b{display:flex;align-items:center;gap:9px;font:600 .98rem var(--head);margin-bottom:4px}
+.tile b::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--lime);flex:none}
+.tile span{display:block;color:var(--muted);font-size:.86rem;line-height:1.5}
+.tile.core b::after{content:"daily";margin-left:auto;font:500 .62rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--lime);border:1px solid color-mix(in srgb,var(--lime) 40%,var(--line));padding:1px 8px;border-radius:999px}
+@keyframes tin{to{opacity:1;transform:none}}
+
+/* credentials */
+.cgrid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:18px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border:0;padding-bottom:0}
+.row:first-of-type{padding-top:0}
+.row b{font:600 .95rem var(--head);display:block;line-height:1.35}
+.row small{display:block;color:var(--muted);font-size:.82rem}
+.row em{font:500 .78rem var(--mono);color:var(--muted);font-style:normal;text-align:right;white-space:nowrap}
+.row a.v{white-space:nowrap;padding:6px 12px;border:1px solid var(--line);border-radius:999px;font-size:.78rem;color:var(--lime);transition:.2s}
+.row a.v:hover{background:var(--lime);color:var(--on-lime)}
+
+/* contact */
+.cta-card{text-align:center;padding:84px 30px;border-radius:30px;background:var(--card);position:relative;overflow:hidden}
+.cta-card::after{content:"";position:absolute;inset:-60%;background:conic-gradient(from 90deg,transparent,var(--lime),transparent 25%,var(--violet),transparent 60%);opacity:.1;animation:sp 18s linear infinite;pointer-events:none}
+@keyframes sp{to{transform:rotate(360deg)}}
+.cta-card>*{position:relative;z-index:1}
+.cta-card h2{font:800 clamp(2.3rem,6vw,4.3rem)/1.03 var(--head);letter-spacing:-.03em;word-spacing:.08em;max-width:15ch;margin:6px auto 16px}
+.cta-card p{color:var(--muted);max-width:48ch;margin:0 auto;font-size:1rem}
+footer{padding:34px 0;color:var(--muted);font:400 .8rem var(--mono)}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:26px}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+
+@media(max-width:960px){
+  .nav a.l:not(.keep){display:none}
+  .hero{padding-top:130px}
+  .about,.cgrid,.job,.ba,.charts,.pc.big{grid-template-columns:1fr}
+  .pgrid,.sgrid{grid-template-columns:1fr 1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .cbox:nth-child(3){grid-column:auto}
+  .pc.big .viz{height:220px}
+  section{padding:70px 0}
+}
+@media(max-width:960px){.skx{grid-template-columns:1fr}.tabs{position:static;display:flex;overflow-x:auto;gap:8px;padding-bottom:4px}.tab{width:auto;flex:none}.tab small{display:none}}
+@media(max-width:620px){.tiles{grid-template-columns:1fr}
+  .pgrid,.sgrid{grid-template-columns:1fr}
+  .brand span{display:none}
+  .tl{padding-left:26px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}h1 .w{opacity:1;transform:none;filter:none}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+
+<nav class="nav">
+  <a href="#top" class="brand"><i>P</i><span>Pinky</span></a>
+  <a href="#about" class="l">About</a>
+  <a href="#projects" class="l keep">Projects</a>
+  <a href="#experience" class="l">Experience</a>
+  <a href="#demo" class="l">Demo</a>
+  <a href="#skills" class="l">Skills</a>
+  <a href="#credentials" class="l">Credentials</a>
+  <a href="#contact" class="cta">Hire me</a>
+  <button id="theme" aria-label="Toggle theme">◐</button>
+</nav>
+
+<main id="top">
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <span class="avail"><i></i>Data Analyst at TeamArcs Technologies</span>
+    <h1 id="h1">Turning messy data into <span class="hl">decisions that stick.</span></h1>
+    <div class="typed">I work as a <b id="typed"></b><span class="cur"></span></div>
+    <p class="sub">I'm <b>Pinky Goyal</b>. I own the production <b>SQL Server</b> database behind simplisyt.com, build <b>Power BI</b> reporting on top of it and automate the repetitive parts with <b>Python</b>.</p>
+    <div class="btns">
+      <a href="#projects" class="btn p">View projects →</a>
+      <a href="Pinky_Goyal_Data_Analyst_Resume.pdf" class="btn" download>Download Resume</a>
+      <a href="#contact" class="btn">Contact me</a>
+    </div>
+    <div class="stats rv">
+      <div class="stat"><b data-n="1.5" data-s="+">0</b><span>Years on production data</span></div>
+      <div class="stat"><b data-n="5" data-s="">0</b><span>Modules on one live database</span></div>
+      <div class="stat"><b data-n="2" data-s="×">0</b><span>Smart India Hackathon finalist</span></div>
+      <div class="stat"><b data-n="81.5" data-s="%">0</b><span>B.Tech CSE score</span></div>
+    </div>
+  </div>
+  <div class="marq"><div>
+    <span>SQL Server</span><span>T-SQL</span><span>Power BI</span><span>DAX</span><span>SSRS</span><span>Python</span><span>Pandas</span><span>NumPy</span><span>Scikit-learn</span><span>OpenCV</span><span>PostgreSQL</span><span>ETL</span><span>Query Optimization</span><span>Data Modeling</span>
+    <span>SQL Server</span><span>T-SQL</span><span>Power BI</span><span>DAX</span><span>SSRS</span><span>Python</span><span>Pandas</span><span>NumPy</span><span>Scikit-learn</span><span>OpenCV</span><span>PostgreSQL</span><span>ETL</span><span>Query Optimization</span><span>Data Modeling</span>
+  </div></div>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="sh rv"><div><span class="eyebrow">About</span><h2>The analyst behind the numbers</h2></div><p>Database owner, report builder, automation fan.</p></div>
+    <div class="about">
+      <div class="card txt rv">
+        <p>I'm a B.Tech Computer Science graduate who started in data as an intern and now looks after the database of a <b>live survey and panel platform</b>. My job is to make sure the numbers are right, fast to query and easy for non-technical teams to read.</p>
+        <p>Day to day that means writing T-SQL, tuning slow queries, designing the data model, building Power BI dashboards and replacing manual reporting with Python. I'm now adding machine learning and computer vision to that toolkit.</p>
+        <ul class="hl-list">
+          <li><span><b>Consistent numbers.</b> One logic layer in stored procedures and views, so every report agrees.</span></li>
+          <li><span><b>Fast reports.</b> Indexing, execution-plan analysis and schema refinement.</span></li>
+          <li><span><b>Self-service.</b> Filter-driven Power BI dashboards that stakeholders use themselves.</span></li>
+        </ul>
+      </div>
+      <div class="card profile rv d1">
+        <div class="pr-top"><div class="avatar">PG</div><div><h3>Pinky Goyal</h3><span>Data Analyst</span></div></div>
+        <div class="kv">
+          <div><span>Company</span><b>TeamArcs Technologies</b></div>
+          <div><span>Focus</span><b>SQL Server · Power BI · Python</b></div>
+          <div><span>Education</span><b>B.Tech CSE, 2025</b></div>
+          <div><span>Status</span><b style="color:#34d399">Open to opportunities</b></div>
+        </div>
+        <div class="soc">
+          <a href="https://github.com/pinkygoyal0208" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://linkedin.com/in/pinky-goyal-94765a261" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="mailto:pinkygkp525@gmail.com">Email</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <div class="sh rv"><div><span class="eyebrow">Projects</span><h2>Built, running and planned</h2></div><p>Production work first, then ML projects. Dashed cards are planned builds I haven't started yet.</p></div>
+    <div class="filters rv" id="filters">
+      <button class="on" data-f="all">All</button><button data-f="prod">Production</button><button data-f="ml">ML &amp; AI</button><button data-f="auto">Automation</button><button data-f="plan">Planned</button>
+    </div>
+    <div class="pgrid" id="plist">
+
+      <article class="card pc big rv" data-c="prod">
+        <div>
+          <span class="tag"><i></i>Live in production</span>
+          <h3>simplisyt.com: database &amp; reporting</h3>
+          <p>A multi-module SQL Server schema covering surveys, polls, ideas, project management and panel applications. Business logic sits in reusable <b>stored procedures and views</b>, so every report reads from one consistent layer. Dashboards on top track response status, pre-screening, project performance and client/supplier revenue.</p>
+          <div class="chips"><span class="chip a">SQL Server</span><span class="chip">T-SQL</span><span class="chip">Indexing</span><span class="chip">Power BI</span><span class="chip">SSRS</span></div>
+          <a class="btn sm" href="https://simplisyt.com/" target="_blank" rel="noopener">Visit simplisyt.com ↗</a>
+        </div>
+        <div class="viz"><svg viewBox="0 0 400 280" aria-label="Schema diagram">
+          <g class="s flow"><path d="M200 140 L82 58M200 140 L318 58M200 140 L82 222M200 140 L318 222"/></g>
+          <rect x="138" y="112" width="124" height="56" rx="12" class="fa pulse"/>
+          <text x="200" y="136" text-anchor="middle" style="fill:var(--on-lime);font-weight:600">Projects</text>
+          <text x="200" y="152" text-anchor="middle" style="fill:var(--on-lime);opacity:.7;font-size:9px">core entity</text>
+          <rect x="26" y="34" width="112" height="48" rx="10" class="fv"/><text x="82" y="62" text-anchor="middle" style="fill:#fff">Surveys</text>
+          <rect x="262" y="34" width="112" height="48" rx="10" class="fv"/><text x="318" y="62" text-anchor="middle" style="fill:#fff">Polls</text>
+          <rect x="26" y="198" width="112" height="48" rx="10" class="fp"/><text x="82" y="226" text-anchor="middle" style="fill:#1b0710">Panel</text>
+          <rect x="262" y="198" width="112" height="48" rx="10" class="fp"/><text x="318" y="226" text-anchor="middle" style="fill:#1b0710">Ideas</text>
+        </svg></div>
+      </article>
+
+      <article class="card pc rv" data-c="prod auto">
+        <div class="viz"><svg viewBox="0 0 300 150"><rect x="24" y="44" width="94" height="62" rx="10" class="s"/><text x="71" y="80" text-anchor="middle">SSRS</text>
+          <path class="a flow" d="M128 75 H172"/><path class="a" d="M164 67 L174 75 L164 83"/>
+          <rect x="182" y="44" width="94" height="62" rx="10" class="fa"/><text x="229" y="80" text-anchor="middle" style="fill:var(--on-lime);font-weight:600">Power BI</text></svg></div>
+        <span class="tag"><i></i>Reporting</span>
+        <h3>SSRS to Power BI migration</h3>
+        <p>Rebuilt parameterized SSRS reports as interactive, filter-driven dashboards for self-service tracking of survey, poll, panel and revenue KPIs.</p>
+        <div class="chips"><span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">Data modeling</span></div>
+      </article>
+
+      <article class="card pc rv d1" data-c="auto">
+        <div class="viz"><svg viewBox="0 0 300 150">
+          <ellipse cx="74" cy="46" rx="34" ry="11" class="s"/><path class="s" d="M40 46v44c0 6 15 11 34 11s34-5 34-11V46"/><path class="s" d="M40 68c0 6 15 11 34 11s34-5 34-11"/><text x="74" y="130" text-anchor="middle">SQL Server</text>
+          <path class="a flow" d="M126 74 H174"/><path class="a" d="M166 66 L176 74 L166 82"/>
+          <ellipse cx="226" cy="46" rx="34" ry="11" class="a"/><path class="a" d="M192 46v44c0 6 15 11 34 11s34-5 34-11V46"/><path class="a" d="M192 68c0 6 15 11 34 11s34-5 34-11"/><text x="226" y="130" text-anchor="middle">PostgreSQL</text></svg></div>
+        <span class="tag v"><i></i>In progress</span>
+        <h3>SQL Server to PostgreSQL agent</h3>
+        <p>A Python agent that automates schema conversion between the two databases, replacing slow, error-prone manual migration.</p>
+        <div class="chips"><span class="chip">Python</span><span class="chip">PostgreSQL</span><span class="chip">Migration</span></div>
+      </article>
+
+      <article class="card pc rv d2" data-c="ml">
+        <div class="viz"><svg viewBox="0 0 300 150">
+          <g class="s" opacity=".5"><path d="M46 40L104 30M46 40L104 94M46 75L104 62M46 75L104 124M46 110L104 94M46 110L104 62M116 30L174 48M116 62L174 80M116 94L174 112M116 124L174 112M116 62L174 48M186 48L241 75M186 80L241 75M186 112L241 75"/></g>
+          <g class="fv"><circle cx="40" cy="40" r="6"/><circle cx="40" cy="75" r="6"/><circle cx="40" cy="110" r="6"/></g>
+          <g class="fa"><circle cx="110" cy="30" r="6"/><circle cx="110" cy="62" r="6"/><circle cx="110" cy="94" r="6"/><circle cx="110" cy="124" r="6"/></g>
+          <g class="fp"><circle cx="180" cy="48" r="6"/><circle cx="180" cy="80" r="6"/><circle cx="180" cy="112" r="6"/></g>
+          <circle cx="250" cy="75" r="9" class="fa pulse"/></svg></div>
+        <span class="tag v"><i></i>In progress</span>
+        <h3>CNN CAPTCHA recognition</h3>
+        <p>End-to-end model with OpenCV preprocessing, training and evaluation, built to remove a manual verification step from platform workflows.</p>
+        <div class="chips"><span class="chip">Python</span><span class="chip">CNN</span><span class="chip">OpenCV</span></div>
+      </article>
+
+      <article class="card pc rv" data-c="ml">
+        <div class="viz"><svg viewBox="0 0 300 150">
+          <g class="s"><path d="M150 30 L80 75M150 30 L220 75M80 75 L45 118M80 75 L115 118M220 75 L185 118M220 75 L255 118"/></g>
+          <rect x="116" y="14" width="68" height="26" rx="8" class="fa"/><text x="150" y="31" text-anchor="middle" style="fill:var(--on-lime)">interest?</text>
+          <rect x="52" y="62" width="56" height="26" rx="8" class="fv"/><text x="80" y="79" text-anchor="middle" style="fill:#fff">skills</text>
+          <rect x="192" y="62" width="56" height="26" rx="8" class="fv"/><text x="220" y="79" text-anchor="middle" style="fill:#fff">aptitude</text>
+          <g class="fp"><circle cx="45" cy="122" r="7"/><circle cx="115" cy="122" r="7"/><circle cx="185" cy="122" r="7"/><circle cx="255" cy="122" r="7"/></g></svg></div>
+        <span class="tag p"><i></i>Machine learning</span>
+        <h3>Career guidance system</h3>
+        <p>A Decision Tree recommender fed by a skills, interests and aptitude assessment, shipped as a responsive web app with a Python backend.</p>
+        <div class="chips"><span class="chip">Scikit-learn</span><span class="chip">Python</span><span class="chip">JavaScript</span></div>
+      </article>
+
+      <article class="card pc rv d1" data-c="ml">
+        <div class="viz"><svg viewBox="0 0 300 150">
+          <g class="s" opacity=".3"><path d="M20 120H280M20 90H280M20 60H280M20 30H280"/></g>
+          <rect x="175" y="14" width="105" height="116" fill="var(--violet)" opacity=".1"/>
+          <path class="a" d="M20 105 C50 90 70 98 100 72 S150 62 175 50"/>
+          <path class="a flow" d="M175 50 C205 40 235 44 280 22" style="stroke:var(--violet)"/>
+          <text x="227" y="144" text-anchor="middle" style="fill:var(--violet)">forecast</text></svg></div>
+        <span class="tag p"><i></i>Forecasting</span>
+        <h3>Railway rake scheduling</h3>
+        <p>A predictive model on historical coal supply and transport data to schedule rakes better and cut demurrage costs.</p>
+        <div class="chips"><span class="chip">Python</span><span class="chip">Forecasting</span></div>
+      </article>
+
+      <article class="card pc rv d2" data-c="ml">
+        <div class="viz"><svg viewBox="0 0 300 150">
+          <g class="a" style="stroke-width:3"><path d="M96 38v-14h14M204 38v-14h-14M96 112v14h14M204 112v14h-14"/></g>
+          <g class="fa"><circle cx="150" cy="58" r="12"/><rect x="132" y="74" width="36" height="34" rx="10"/></g>
+          <g class="fv"><circle cx="124" cy="60" r="3" class="pulse"/><circle cx="176" cy="60" r="3" class="pulse"/><circle cx="116" cy="82" r="3" class="pulse"/><circle cx="184" cy="82" r="3" class="pulse"/></g>
+          <text x="150" y="142" text-anchor="middle" style="fill:var(--lime)">gesture detected</text></svg></div>
+        <span class="tag p"><i></i>Computer vision</span>
+        <h3>Sign language detection</h3>
+        <p>Real-time gesture recognition from live video using a Support Vector Machine and OpenCV image processing.</p>
+        <div class="chips"><span class="chip">SVM</span><span class="chip">OpenCV</span></div>
+      </article>
+
+      <article class="card pc plan rv" data-c="plan ml">
+        <div class="viz"><svg viewBox="0 0 300 150">
+          <g class="s" opacity=".3"><path d="M20 120H280"/></g>
+          <g class="fv"><rect x="34" y="70" width="22" height="50" rx="4"/><rect x="68" y="56" width="22" height="64" rx="4"/><rect x="102" y="78" width="22" height="42" rx="4"/><rect x="136" y="44" width="22" height="76" rx="4"/></g>
+          <g class="fo"><rect x="170" y="92" width="22" height="28" rx="4"/><rect x="204" y="100" width="22" height="20" rx="4"/><rect x="238" y="106" width="22" height="14" rx="4"/></g>
+          <path class="s d" d="M20 96H280" style="stroke:var(--pink)"/><text x="262" y="90" text-anchor="end" style="fill:var(--pink)">risk threshold</text></svg></div>
+        <span class="tag o"><i></i>Planned</span>
+        <h3>Respondent churn &amp; quality prediction</h3>
+        <p>Classify panel members likely to go inactive or give low-quality answers and rank them for re-engagement. A high-demand use case for survey, e-commerce and subscription businesses.</p>
+        <div class="chips"><span class="chip">Scikit-learn</span><span class="chip">Feature engineering</span><span class="chip">SQL</span></div>
+      </article>
+
+      <article class="card pc plan rv d1" data-c="plan">
+        <div class="viz"><svg viewBox="0 0 300 150">
+          <g class="s" opacity=".3"><path d="M30 20V125H280"/></g>
+          <g class="fa"><circle cx="210" cy="36" r="5"/><circle cx="226" cy="50" r="5"/><circle cx="198" cy="52" r="5"/><circle cx="238" cy="34" r="5"/></g>
+          <g class="fv"><circle cx="130" cy="70" r="5"/><circle cx="148" cy="84" r="5"/><circle cx="116" cy="86" r="5"/><circle cx="142" cy="62" r="5"/><circle cx="160" cy="76" r="5"/></g>
+          <g class="fp"><circle cx="62" cy="108" r="5"/><circle cx="82" cy="98" r="5"/><circle cx="74" cy="114" r="5"/><circle cx="96" cy="110" r="5"/></g>
+          <text x="226" y="22" text-anchor="middle" style="fill:var(--lime)">champions</text><text x="140" y="112" text-anchor="middle" style="fill:var(--violet)">regulars</text><text x="80" y="136" text-anchor="middle" style="fill:var(--pink)">at risk</text></svg></div>
+        <span class="tag o"><i></i>Planned</span>
+        <h3>RFM customer segmentation</h3>
+        <p>Segment users by recency, frequency and value using SQL window functions and K-Means, then surface the segments in a Power BI report.</p>
+        <div class="chips"><span class="chip">K-Means</span><span class="chip">T-SQL</span><span class="chip">Power BI</span></div>
+      </article>
+
+      <article class="card pc plan rv d2" data-c="plan auto">
+        <div class="viz"><svg viewBox="0 0 300 150">
+          <g class="s"><rect x="40" y="22" width="220" height="26" rx="8"/><rect x="40" y="62" width="220" height="26" rx="8"/><rect x="40" y="102" width="220" height="26" rx="8"/></g>
+          <circle cx="58" cy="35" r="6" class="fa"/><text x="74" y="39">null check</text><text x="244" y="39" text-anchor="end" style="fill:var(--lime)">pass</text>
+          <circle cx="58" cy="75" r="6" class="fa"/><text x="74" y="79">duplicate keys</text><text x="244" y="79" text-anchor="end" style="fill:var(--lime)">pass</text>
+          <circle cx="58" cy="115" r="6" class="fp pulse"/><text x="74" y="119">broken references</text><text x="244" y="119" text-anchor="end" style="fill:var(--pink)">alert</text></svg></div>
+        <span class="tag o"><i></i>Planned</span>
+        <h3>Automated data quality monitor</h3>
+        <p>Scheduled Python checks for nulls, duplicates, drift and referential breaks across modules, with alerts before bad numbers reach a dashboard.</p>
+        <div class="chips"><span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">Alerting</span></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <div class="sh rv"><div><span class="eyebrow">Experience</span><h2>Where I've worked</h2></div><p>From internship to owning a production database.</p></div>
+    <div class="tl">
+      <div class="card job rv">
+        <div><div class="when">MAR 2025 — PRESENT</div><h3>Data Analyst</h3><div class="org">TeamArcs Technologies Pvt. Ltd.</div></div>
+        <ul>
+          <li><b>Own the production SQL Server database</b> for simplisyt.com across Project Management, Community Surveys, Ideas, Polls and Panel Applications, keeping data intact on a live platform.</li>
+          <li>Turn business requirements into optimized <b>T-SQL stored procedures, views and functions</b> behind KPI reports on survey response status, pre-screening, project performance and client/supplier revenue.</li>
+          <li>Improve query and report speed through <b>indexing, execution-plan analysis and schema refinement</b>, keeping numbers consistent across modules.</li>
+          <li><b>Migrated SSRS reports to Power BI</b>, giving stakeholders filter-driven dashboards for near real-time self-service tracking.</li>
+          <li>Automate cleaning, validation and transformation with <b>Python (Pandas, NumPy) ETL pipelines</b>, replacing repetitive manual reporting.</li>
+          <li>Building a <b>CNN CAPTCHA recognizer</b> and a Python agent for SQL Server to PostgreSQL schema conversion.</li>
+        </ul>
+      </div>
+      <div class="card job rv">
+        <div><div class="when">JUN — AUG 2024</div><h3>Data Analyst Intern</h3><div class="org">Bargo Software Pvt. Ltd.</div></div>
+        <ul>
+          <li>Analyzed large datasets with <b>Python, SQL and statistical techniques</b> to find business trends and support decisions.</li>
+          <li>Built cleaning, preprocessing and transformation pipelines that improved accuracy for downstream reporting.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section id="demo">
+  <div class="wrap">
+    <div class="sh rv"><div><span class="eyebrow">Live demo</span><h2>Survey operations dashboard</h2></div><p>The kind of KPIs I build for the platform. Change a filter and it recalculates.</p></div>
+    <div class="card dash rv">
+      <div class="dtools">
+        <label>Module
+          <select id="fMod"><option value="all">All modules</option><option>Community Surveys</option><option>Polls</option><option>Panel Applications</option></select></label>
+        <label>Region
+          <select id="fReg"><option value="all">All regions</option><option>India</option><option>US</option><option>EU</option></select></label>
+        <label>Months shown: <span id="fMv">12</span>
+          <input type="range" id="fM" min="3" max="12" value="12"></label>
+        <button id="dReset">Reset</button>
+      </div>
+      <div class="kpis">
+        <div class="kpi"><small>Invites sent</small><b id="k1">0</b></div>
+        <div class="kpi"><small>Completes</small><b id="k2">0</b></div>
+        <div class="kpi"><small>Completion rate</small><b id="k3">0%</b></div>
+        <div class="kpi"><small>Avg LOI (min)</small><b id="k4">0</b></div>
+        <div class="kpi"><small>Revenue</small><b id="k5">$0</b></div>
+      </div>
+      <div class="charts">
+        <div class="cbox"><h4>Completes and revenue by month</h4><canvas id="c1"></canvas></div>
+        <div class="cbox"><h4>Response status</h4><canvas id="c2"></canvas></div>
+        <div class="cbox"><h4>Revenue by client</h4><canvas id="c3"></canvas></div>
+      </div>
+      <div class="note">Synthetic data generated in your browser. This is not real simplisyt.com data.</div>
+    </div>
+
+    <div class="sh csh rv"><div><span class="eyebrow">Case study</span><h2>How I tune a slow report</h2></div><p>A pattern I see often, shown with generic table names.</p></div>
+    <div class="ba" style="margin-top:0">
+      <div class="card rv"><div class="lab2 bad">Before · correlated subqueries</div>
+<pre class="blk"><b>SELECT</b> p.ProjectId,
+  (<b>SELECT COUNT</b>(*) <b>FROM</b> Responses r
+    <b>WHERE</b> r.ProjectId = p.ProjectId
+      <b>AND</b> r.Status = 'Complete') <b>AS</b> Completes,
+  (<b>SELECT SUM</b>(Amount) <b>FROM</b> Billing b
+    <b>WHERE</b> b.ProjectId = p.ProjectId) <b>AS</b> Rev
+<b>FROM</b> Projects p;</pre>
+        <p>One subquery runs for every project row, so the work grows with the data.</p></div>
+      <div class="card rv d1"><div class="lab2 good">After · set-based with a covering index</div>
+<pre class="blk"><b>CREATE INDEX</b> IX_Resp_Proj_Status
+  <b>ON</b> Responses(ProjectId, Status);
+
+<b>WITH</b> c <b>AS</b> (<b>SELECT</b> ProjectId, <b>COUNT</b>(*) Completes
+  <b>FROM</b> Responses <b>WHERE</b> Status = 'Complete'
+  <b>GROUP BY</b> ProjectId),
+b <b>AS</b> (<b>SELECT</b> ProjectId, <b>SUM</b>(Amount) Rev
+  <b>FROM</b> Billing <b>GROUP BY</b> ProjectId)
+<b>SELECT</b> p.ProjectId, c.Completes, b.Rev
+<b>FROM</b> Projects p
+<b>LEFT JOIN</b> c <b>ON</b> c.ProjectId = p.ProjectId
+<b>LEFT JOIN</b> b <b>ON</b> b.ProjectId = p.ProjectId;</pre>
+        <p>Aggregate once, join once, and reconcile totals against the old query before switching.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sh rv"><div><span class="eyebrow">Skills</span><h2>What I work with, and where</h2></div><p>Pick a category. Each skill says where I actually use it.</p></div>
+    <div class="skx rv">
+      <div class="tabs" id="stabs" role="tablist"></div>
+      <div class="panel card" id="spanel"><div class="ph"><h3 id="sTitle"></h3><p id="sDesc"></p></div><div class="tiles" id="stiles"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section id="credentials">
+  <div class="wrap">
+    <div class="sh rv"><div><span class="eyebrow">Credentials</span><h2>Learning &amp; recognition</h2></div><p>Certifications, education and awards.</p></div>
+    <div class="cgrid">
+      <div class="card rv">
+        <div class="lbl">Certifications</div>
+        <div class="row"><div><b>Data Analysis with Python</b><small>IBM SkillsBuild · May 2026</small></div><a class="v" href="https://courses.skillsbuild.skillsnetwork.site/certificates/81400c12ea914d2d9f0893613b6480e4" target="_blank" rel="noopener">View ↗</a></div>
+        <div class="row"><div><b>Machine Learning with Python</b><small>IBM SkillsBuild · May 2026</small></div><a class="v" href="https://courses.skillsbuild.skillsnetwork.site/certificates/b19a9df9961f42119116dd52cd7775f8" target="_blank" rel="noopener">View ↗</a></div>
+        <div class="row"><div><b>Data Analytics &amp; Machine Learning</b><small>WsCubeTech</small></div></div>
+        <div class="row"><div><b>Data Science Certification</b><small>PW Skills</small></div></div>
+        <div class="row"><div><b>Data Science Workshop</b><small>ShapeMySkill</small></div></div>
+      </div>
+      <div class="card rv d1">
+        <div class="lbl">Education</div>
+        <div class="row"><div><b>B.Tech, Computer Science &amp; Engineering</b><small>Dr. APJ Abdul Kalam Technical University</small></div><em>2021–25<br>81.51%</em></div>
+        <div class="row"><div><b>Class XII (CBSE)</b><small>St. Xavier's Sr. Sec. School</small></div><em>2020<br>91.40%</em></div>
+        <div class="row"><div><b>Class X (CBSE)</b><small>Netajee Defence Academy</small></div><em>2018<br>89.20%</em></div>
+      </div>
+      <div class="card rv d2">
+        <div class="lbl">Recognition</div>
+        <div class="row"><div><b>Smart India Hackathon finalist</b><small>2023 and 2024 · National level, Ministry of Education Innovation Cell &amp; AICTE</small></div></div>
+        <div class="row"><div><b>Winner, paper presentation</b><small>College competition</small></div></div>
+        <div class="row"><div><b>Academic Excellence Award</b><small>Class topper for 3 consecutive years</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="card cta-card rv">
+      <span class="eyebrow" style="justify-content:center">Contact</span>
+      <h2>Have data that needs a home?</h2>
+      <p>If you need an analyst who can own the database, build the dashboard and automate the pipeline, let's talk.</p>
+      <div class="btns">
+        <a class="btn p" href="mailto:pinkygkp525@gmail.com">pinkygkp525@gmail.com</a>
+        <a class="btn" href="tel:+919580004508">+91 95800 04508</a>
+        <a class="btn" href="https://linkedin.com/in/pinky-goyal-94765a261" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn" href="https://github.com/pinkygoyal0208" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+      <div class="btns" style="margin-top:12px"><a class="btn" href="Pinky_Goyal_Data_Analyst_Resume.pdf" download>Data Analyst Resume</a><a class="btn" href="Pinky_Goyal_Data_Scientist_Resume.pdf" download>Data Scientist Resume</a></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer><div class="wrap"><span>© <span id="yr"></span> Pinky Goyal</span><span>SQL Server · Power BI · Python</span></div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+const root=document.documentElement,tb=document.getElementById('theme');
+try{const t=localStorage.getItem('theme');if(t)root.dataset.theme=t}catch(e){}
+tb.onclick=()=>{root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';try{localStorage.setItem('theme',root.dataset.theme)}catch(e){}};
+
+// hero headline: word-by-word reveal
+(function(){
+  const h=document.getElementById('h1');let i=0;
+  const wrap=(node,cls)=>{node.textContent.split(/(\s+)/).forEach(t=>{
+    if(!t.trim()){node.parentNode.insertBefore(document.createTextNode(' '),node);return}
+    const s=document.createElement('span');s.className='w'+(cls?' '+cls:'');s.textContent=t;s.style.animationDelay=(.15+i++*.09)+'s';node.parentNode.insertBefore(s,node)});node.remove()};
+  [...h.childNodes].forEach(n=>{
+    if(n.nodeType===3)wrap(n,'');
+    else if(n.classList&&n.classList.contains('hl')){
+      const t=n.textContent;n.textContent='';
+      t.split(' ').forEach(w=>{const s=document.createElement('span');s.className='w hl';s.textContent=w;s.style.animationDelay=(.15+i++*.09)+'s';n.parentNode.insertBefore(s,n);n.parentNode.insertBefore(document.createTextNode(' '),n)});
+      n.remove();
+    }
+  });
+})();
+
+// typed role
+(function(){
+  const roles=['Data Analyst','SQL Server specialist','Power BI developer','future Data Scientist'];
+  const el=document.getElementById('typed');let r=0,c=0,del=false;
+  (function tick(){
+    const w=roles[r];el.textContent=w.slice(0,c);
+    if(!del&&c===w.length){del=true;return setTimeout(tick,1600)}
+    if(del&&c===0){del=false;r=(r+1)%roles.length}
+    c+=del?-1:1;setTimeout(tick,del?32:70);
+  })();
+})();
+
+// reveal + counters
+const count=n=>{const t=+n.dataset.n,s=n.dataset.s,d=String(t).includes('.')?1:0,st=performance.now();
+  (function f(now){const p=Math.min((now-st)/1500,1),e=1-Math.pow(1-p,3);n.textContent=(t*e).toFixed(d)+(p===1?s:'');if(p<1)requestAnimationFrame(f)})(st)};
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');e.target.querySelectorAll('[data-n]').forEach(count);io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.rv').forEach(x=>io.observe(x));
+
+// card spotlight
+document.querySelectorAll('.card').forEach(c=>c.addEventListener('pointermove',e=>{
+  const b=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-b.left+'px');c.style.setProperty('--my',e.clientY-b.top+'px')}));
+
+// project filters
+document.querySelectorAll('#filters button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('#filters button').forEach(x=>x.classList.toggle('on',x===b));
+  document.querySelectorAll('#plist .pc').forEach(p=>{
+    const show=b.dataset.f==='all'||p.dataset.c.split(' ').includes(b.dataset.f);
+    p.classList.toggle('hide',!show);
+    if(show){p.classList.add('in');p.classList.remove('pop');void p.offsetWidth;p.classList.add('pop')}
+  });
+});
+
+// progress bar + active nav
+const ls=[...document.querySelectorAll('.nav a.l')],ss=ls.map(a=>document.querySelector(a.hash));
+addEventListener('scroll',()=>{
+  const h=document.documentElement;document.getElementById('bar').style.width=h.scrollTop/(h.scrollHeight-h.clientHeight)*100+'%';
+  let i=-1;ss.forEach((s,k)=>{if(s.getBoundingClientRect().top<innerHeight*.4)i=k});
+  ls.forEach((a,k)=>a.classList.toggle('on',k===i));
+},{passive:true});
+
+// skills explorer
+(function(){
+  const I={db:'<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/>',
+    bi:'<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
+    py:'<path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/>',
+    ml:'<circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/>',
+    tl:'<rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/>'};
+  const D=[
+   {k:'db',n:'Databases & SQL',d:'Designing, querying and tuning relational databases in production.',s:[
+    ['SQL Server & T-SQL','Production database behind simplisyt.com',1],
+    ['Stored procedures, views, functions','One reusable logic layer behind every KPI report',1],
+    ['Indexing & execution plans','Finding slow queries and making reports faster',1],
+    ['CTEs & window functions','Rankings, running totals and set-based rewrites',1],
+    ['Data modeling & ER design','Multi-module schema for surveys, polls, ideas and panels',0],
+    ['Triggers','Enforcing rules inside the database',0],
+    ['PostgreSQL & MySQL','Migration target and relational fundamentals',0]]},
+   {k:'bi',n:'Reporting & BI',d:'Dashboards and KPIs that non-technical teams can use on their own.',s:[
+    ['Power BI & DAX','Filter-driven self-service dashboards',1],
+    ['SSRS','Parameterized reports, later migrated to Power BI',1],
+    ['Data modeling for BI','Shaping tables so dashboards stay fast and correct',0],
+    ['Excel','Pivot tables, VLOOKUP and quick dashboards',0],
+    ['KPI design & storytelling','Turning requirements into metrics people trust',0],
+    ['Stakeholder reporting','Requirement gathering and regular reporting',0]]},
+   {k:'py',n:'Python & Data Engineering',d:'Automation that replaces repetitive manual reporting work.',s:[
+    ['Pandas & NumPy','Cleaning, validating and transforming datasets',1],
+    ['ETL pipelines','Automated data preparation for reports',1],
+    ['Data quality & validation','Catching bad data before it reaches a dashboard',0],
+    ['Matplotlib & Seaborn','Exploratory analysis and charts',0],
+    ['Database migration','SQL Server to PostgreSQL schema conversion agent',0],
+    ['Jupyter & EDA','Statistical and trend analysis',0]]},
+   {k:'ml',n:'Machine Learning & Vision',d:'Models from problem framing to evaluation, built across several projects.',s:[
+    ['Scikit-learn & decision trees','Career guidance recommender',0],
+    ['CNN','CAPTCHA recognition model (in progress)',0],
+    ['OpenCV','Image preprocessing and feature extraction',0],
+    ['SVM','Real-time sign language detection',0],
+    ['Forecasting','Railway rake scheduling to cut demurrage costs',0],
+    ['Model evaluation','Accuracy, precision, recall and F1',0]]},
+   {k:'tl',n:'Tools & Languages',d:'The everyday environment I work in.',s:[
+    ['SSMS','Day-to-day SQL Server development',1],
+    ['Git & GitHub','Version control for scripts and projects',0],
+    ['VS Code','Python and web development',0],
+    ['C','Programming fundamentals from college',0],
+    ['HTML, CSS & JavaScript','Front end of the career guidance web app',0]]}];
+  const tabs=document.getElementById('stabs'),tiles=document.getElementById('stiles');
+  const show=i=>{
+    const c=D[i];
+    tabs.querySelectorAll('.tab').forEach((b,k)=>{b.classList.toggle('on',k===i);b.setAttribute('aria-selected',k===i)});
+    document.getElementById('sTitle').textContent=c.n;document.getElementById('sDesc').textContent=c.d;
+    tiles.innerHTML='';
+    c.s.forEach((x,k)=>{const t=document.createElement('div');t.className='tile'+(x[2]?' core':'');t.style.animationDelay=(k*.06)+'s';
+      t.innerHTML='<b></b><span></span>';t.querySelector('b').textContent=x[0];t.querySelector('span').textContent=x[1];tiles.appendChild(t)});
+  };
+  D.forEach((c,i)=>{const b=document.createElement('button');b.className='tab';b.type='button';b.setAttribute('role','tab');
+    b.innerHTML='<span class="ti"><svg viewBox="0 0 24 24">'+I[c.k]+'</svg></span><span>'+c.n+'<small>'+c.s.length+' skills</small></span>';
+    b.onclick=()=>show(i);tabs.appendChild(b)});
+  show(0);
+})();
+
+// dashboard demo (synthetic data)
+(function(){
+  if(!window.Chart)return;
+  const $=id=>document.getElementById(id);
+  let seed=42;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+  const mods=['Community Surveys','Polls','Panel Applications'],regs=['India','US','EU'];
+  const clients=['Northwind Research','Acme Insights','Globex Panels','Initech Media','Umbrella Health','Stark Retail'];
+  const mn=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const rows=[];
+  mods.forEach((m,mi)=>regs.forEach((r,ri)=>mn.forEach((_,t)=>{
+    const sent=Math.round((1800+rnd()*900+t*110)*(1+mi*.15)*(ri===0?1.3:1));
+    const comp=Math.round(sent*(.22+rnd()*.14));
+    rows.push({m,r,t,sent,comp,scr:Math.round(sent*.18),part:Math.round(sent*.1),loi:6+rnd()*9,
+      rev:Math.round(comp*(1.8+rnd()*1.4)),cl:clients[Math.floor(rnd()*clients.length)]});
+  })));
+  const css=n=>getComputedStyle(root).getPropertyValue(n).trim();
+  const fmt=n=>n.toLocaleString('en-US');
+  let c1,c2,c3;
+  function draw(){
+    const mod=$('fMod').value,reg=$('fReg').value,M=+$('fM').value;$('fMv').textContent=M;
+    const d=rows.filter(x=>x.t<M&&(mod==='all'||x.m===mod)&&(reg==='all'||x.r===reg));
+    const sum=k=>d.reduce((a,x)=>a+x[k],0);
+    const sent=sum('sent'),comp=sum('comp'),rev=sum('rev');
+    $('k1').textContent=fmt(sent);$('k2').textContent=fmt(comp);
+    $('k3').textContent=(comp/sent*100||0).toFixed(1)+'%';
+    $('k4').textContent=(d.reduce((a,x)=>a+x.loi*x.comp,0)/(comp||1)).toFixed(1);
+    $('k5').textContent='$'+fmt(rev);
+    const lab=mn.slice(0,M),
+      tc=lab.map((_,t)=>d.filter(x=>x.t===t).reduce((a,x)=>a+x.comp,0)),
+      tr=lab.map((_,t)=>d.filter(x=>x.t===t).reduce((a,x)=>a+x.rev,0));
+    const st=[comp,sum('part'),sum('scr'),Math.max(sent-comp-sum('part')-sum('scr'),0)];
+    const cr={};d.forEach(x=>cr[x.cl]=(cr[x.cl]||0)+x.rev);
+    const top=Object.entries(cr).sort((a,b)=>b[1]-a[1]);
+    const L=css('--lime'),V=css('--violet'),P=css('--pink'),T=css('--muted'),R=css('--line');
+    Chart.defaults.color=T;Chart.defaults.font.family="'Inter',sans-serif";
+    [c1,c2,c3].forEach(c=>c&&c.destroy());
+    c1=new Chart($('c1'),{type:'line',data:{labels:lab,datasets:[
+      {label:'Completes',data:tc,borderColor:L,backgroundColor:L+'26',fill:true,tension:.35,pointRadius:2,yAxisID:'y'},
+      {label:'Revenue ($)',data:tr,borderColor:V,tension:.35,pointRadius:0,yAxisID:'y1'}]},
+      options:{maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+        scales:{x:{grid:{display:false}},y:{grid:{color:R},beginAtZero:true},y1:{position:'right',grid:{display:false},beginAtZero:true}},
+        plugins:{legend:{labels:{boxWidth:10,usePointStyle:true}}}}});
+    c2=new Chart($('c2'),{type:'doughnut',data:{labels:['Complete','Partial','Screened out','No response'],
+      datasets:[{data:st,backgroundColor:[L,V,P,R],borderWidth:0}]},
+      options:{maintainAspectRatio:false,cutout:'66%',plugins:{legend:{position:'bottom',labels:{boxWidth:10,usePointStyle:true}}}}});
+    c3=new Chart($('c3'),{type:'bar',data:{labels:top.map(x=>x[0]),datasets:[{data:top.map(x=>x[1]),backgroundColor:V,borderRadius:6}]},
+      options:{indexAxis:'y',maintainAspectRatio:false,scales:{x:{grid:{color:R}},y:{grid:{display:false}}},plugins:{legend:{display:false}}}});
+  }
+  ['fMod','fReg','fM'].forEach(id=>$(id).addEventListener('input',draw));
+  $('dReset').onclick=()=>{$('fMod').value='all';$('fReg').value='all';$('fM').value=12;draw()};
+  draw();tb.addEventListener('click',()=>setTimeout(draw,30));
+})();
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
