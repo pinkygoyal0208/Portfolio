@@ -4,6 +4,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pinky Goyal — Data Analyst</title>
 <meta name="description" content="Pinky Goyal is a data analyst who owns a production SQL Server database, builds Power BI reporting and is moving into machine learning.">
+<meta name="theme-color" content="#08080b">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pinky Goyal — Data Analyst">
+<meta property="og:description" content="SQL Server, Power BI and Python. Owner of a production database behind a live survey and panel platform.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Pinky Goyal","jobTitle":"Data Analyst",
+ "worksFor":{"@type":"Organization","name":"TeamArcs Technologies Pvt. Ltd."},
+ "email":"mailto:pinkygkp525@gmail.com",
+ "sameAs":["https://github.com/pinkygoyal0208","https://linkedin.com/in/pinky-goyal-94765a261"],
+ "knowsAbout":["SQL Server","T-SQL","Power BI","Python","Machine Learning","Data Analysis"]}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -20,7 +31,6 @@
 }
 :root[data-theme="light"] body::before{opacity:.45}
 :root[data-theme="light"] body::after{opacity:.35}
-:root[data-theme="light"] .marq div{color:var(--text);opacity:.8}
 :root[data-theme="light"] .card{box-shadow:0 1px 2px rgba(20,20,30,.04),0 8px 24px -14px rgba(20,20,30,.12)}
 :root[data-theme="light"] .avail{box-shadow:0 1px 2px rgba(20,20,30,.05)}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -56,7 +66,7 @@ body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opa
 .avail{display:inline-flex;align-items:center;gap:9px;padding:7px 16px;border:1px solid var(--line);border-radius:999px;background:var(--card);font-size:.85rem;color:var(--muted)}
 .avail i{width:8px;height:8px;border-radius:50%;background:#34d399;animation:pl 2s infinite}
 @keyframes pl{0%{box-shadow:0 0 0 0 #34d39980}70%,100%{box-shadow:0 0 0 9px #34d39900}}
-h1{font:800 clamp(2.7rem,7vw,5.7rem)/1.03 var(--head);letter-spacing:-.04em;word-spacing:.08em;margin:26px auto 18px;max-width:15ch}
+h1{font:800 clamp(2.7rem,7vw,5.7rem)/1.03 var(--head);letter-spacing:-.04em;word-spacing:.08em;margin:26px auto 18px;max-width:18ch}
 h1 .w{display:inline-block;opacity:0;transform:translateY(34px);filter:blur(8px);animation:wi .8s cubic-bezier(.2,.7,.2,1) forwards}
 @keyframes wi{to{opacity:1;transform:none;filter:none}}
 h1 .hl{background:linear-gradient(95deg,var(--lime),var(--violet) 85%);-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -71,15 +81,20 @@ h1 .hl{background:linear-gradient(95deg,var(--lime),var(--violet) 85%);-webkit-b
 .btn:hover{transform:translateY(-2px);border-color:var(--muted)}
 .btn.p{background:var(--lime);color:var(--on-lime);border-color:var(--lime)}
 .btn.p:hover{box-shadow:0 12px 36px -8px var(--lime)}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;max-width:880px;margin:64px auto 0;border:1px solid var(--line);border-radius:var(--r);background:var(--card);overflow:hidden}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;max-width:1080px;margin:64px auto 0;border:1px solid var(--line);border-radius:var(--r);background:var(--card);overflow:hidden}
 .stat{padding:24px 18px;border-right:1px solid var(--line)}
 .stat:last-child{border:0}
 .stat b{display:block;font:800 2.3rem/1 var(--head);letter-spacing:-.04em}
 .stat span{display:block;margin-top:8px;color:var(--muted);font-size:.84rem}
-.marq{overflow:hidden;border-block:1px solid var(--line);margin-top:70px;padding:16px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
-.marq div{display:flex;gap:44px;width:max-content;animation:mq 40s linear infinite;font:500 .9rem var(--mono);color:var(--muted);white-space:nowrap}
-.marq span::before{content:"◆";color:var(--lime);margin-right:44px;font-size:.55rem;vertical-align:2px}
-@keyframes mq{to{transform:translateX(-50%)}}
+.stackbar{display:grid;grid-template-columns:repeat(4,1fr);max-width:1080px;margin:56px auto 0;border:1px solid var(--line);border-radius:var(--r);background:var(--card);overflow:hidden;text-align:left}
+.sb{padding:22px 24px;border-right:1px solid var(--line);position:relative;transition:background .3s}
+.sb:last-child{border:0}
+.sb::before{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:linear-gradient(90deg,var(--lime),var(--violet));transition:width .5s ease}
+.sb:hover{background:var(--card2)}
+.sb:hover::before{width:100%}
+.sb small{display:block;font:500 .7rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--lime);margin-bottom:10px}
+.sb b{display:block;font:700 1.25rem var(--head);letter-spacing:-.01em}
+.sb span{display:block;margin-top:6px;color:var(--muted);font-size:.84rem;line-height:1.5}
 
 /* section system */
 section{padding:80px 0}
@@ -240,6 +255,35 @@ pre.blk b{color:var(--lime);font-weight:500}
 footer{padding:34px 0;color:var(--muted);font:400 .8rem var(--mono)}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:26px}
 
+
+/* ---- accessibility ---- */
+.skip{position:fixed;left:16px;top:-60px;z-index:500;background:var(--lime);color:var(--on-lime);padding:10px 18px;border-radius:10px;font-weight:600;transition:top .2s}
+.skip:focus{top:12px}
+:focus-visible{outline:2px solid var(--lime);outline-offset:3px;border-radius:6px}
+/* ---- resume dropdown ---- */
+.dd{position:relative}
+.dd .btn{gap:10px}
+.dd .btn span{font-size:.8rem;transition:transform .25s}
+.dd .btn[aria-expanded="true"] span{transform:rotate(180deg)}
+.dd-menu{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);min-width:310px;padding:8px;z-index:60;text-align:left;
+  border:1px solid var(--line);border-radius:16px;background:var(--card);box-shadow:0 24px 60px -20px rgba(0,0,0,.55);animation:ddin .25s cubic-bezier(.2,.7,.2,1)}
+.dd-menu[hidden]{display:none}
+@keyframes ddin{from{opacity:0;transform:translate(-50%,-6px)}}
+.dd-menu a{display:block;padding:13px 16px;border-radius:11px;transition:background .2s}
+.dd-menu a:hover,.dd-menu a:focus-visible{background:var(--card2)}
+.dd-menu b{display:block;font:600 .95rem var(--head)}
+.dd-menu small{display:block;color:var(--muted);font-size:.8rem;margin-top:2px}
+/* ---- scannable bullets ---- */
+.bul{list-style:none;display:grid;gap:9px;margin-top:4px}
+.bul li{position:relative;padding-left:20px;color:var(--muted);font-size:.95rem}
+.bul li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;border-radius:3px;background:var(--lime)}
+.bul li b{color:var(--text);font-weight:500}
+/* ---- micro-interactions: lift + shadow ---- */
+.pc.rv{transition:opacity .8s ease,transform .35s cubic-bezier(.2,.7,.2,1),border-color .3s,box-shadow .35s}
+.pc:hover,.pc.rv.in:hover{transform:translateY(-5px);box-shadow:0 22px 44px -26px rgba(0,0,0,.65)}
+:root[data-theme="light"] .pc:hover,:root[data-theme="light"] .pc.rv.in:hover{box-shadow:0 22px 40px -24px rgba(20,20,30,.28)}
+.btn:active{transform:translateY(0) scale(.98)}
+
 /* reveal */
 .rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
@@ -258,7 +302,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
   section{padding:70px 0}
 }
 @media(max-width:960px){.skx{grid-template-columns:1fr}.tabs{position:static;display:flex;overflow-x:auto;gap:8px;padding-bottom:4px}.tab{width:auto;flex:none}.tab small{display:none}}
-@media(max-width:620px){.tiles{grid-template-columns:1fr}
+@media(max-width:960px){.stackbar{grid-template-columns:1fr 1fr}.sb:nth-child(2){border-right:0}.sb:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+@media(max-width:620px){.stackbar{grid-template-columns:1fr}.sb{border-right:0;border-bottom:1px solid var(--line)}.sb:last-child{border-bottom:0}.tiles{grid-template-columns:1fr}
   .pgrid,.sgrid{grid-template-columns:1fr}
   .brand span{display:none}
   .tl{padding-left:26px}
@@ -267,9 +312,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
 </style>
 </head>
 <body>
-<div id="bar"></div>
+<!-- Accessibility: lets keyboard users jump past the navigation -->
+<a class="skip" href="#top">Skip to main content</a>
+<div id="bar" aria-hidden="true"></div>
 
-<nav class="nav">
+<!-- Primary navigation: semantic <nav> with an accessible name -->
+<nav class="nav" aria-label="Primary">
   <a href="#top" class="brand"><i>P</i><span>Pinky</span></a>
   <a href="#about" class="l">About</a>
   <a href="#projects" class="l keep">Projects</a>
@@ -281,7 +329,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
   <button id="theme" aria-label="Toggle theme">◐</button>
 </nav>
 
-<main id="top">
+<!-- Page content lives in <main>; each <section> is labelled by its own heading -->
+<main id="top" tabindex="-1">
 
 <!-- HERO -->
 <header class="hero">
@@ -292,7 +341,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
     <p class="sub">I'm <b>Pinky Goyal</b>. I own the production <b>SQL Server</b> database behind simplisyt.com, build <b>Power BI</b> reporting on top of it and automate the repetitive parts with <b>Python</b>.</p>
     <div class="btns">
       <a href="#projects" class="btn p">View projects →</a>
-      <a href="Pinky_Goyal_Data_Analyst_Resume.pdf" class="btn" download>Download Resume</a>
+      <div class="dd" id="dd">
+        <button type="button" class="btn" id="ddBtn" aria-haspopup="true" aria-expanded="false" aria-controls="ddMenu">Download Resume <span aria-hidden="true">&#9662;</span></button>
+        <div class="dd-menu" id="ddMenu" role="menu" aria-label="Choose a resume" hidden>
+          <a role="menuitem" href="Pinky_Goyal_Data_Analyst_Resume.pdf" download><b>Data Analyst Resume</b><small>SQL Server · Power BI · Reporting</small></a>
+          <a role="menuitem" href="Pinky_Goyal_Data_Scientist_Resume.pdf" download><b>Data Scientist Resume</b><small>Python · Machine Learning · Computer Vision</small></a>
+        </div>
+      </div>
       <a href="#contact" class="btn">Contact me</a>
     </div>
     <div class="stats rv">
@@ -302,16 +357,20 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
       <div class="stat"><b data-n="81.5" data-s="%">0</b><span>B.Tech CSE score</span></div>
     </div>
   </div>
-  <div class="marq"><div>
-    <span>SQL Server</span><span>T-SQL</span><span>Power BI</span><span>DAX</span><span>SSRS</span><span>Python</span><span>Pandas</span><span>NumPy</span><span>Scikit-learn</span><span>OpenCV</span><span>PostgreSQL</span><span>ETL</span><span>Query Optimization</span><span>Data Modeling</span>
-    <span>SQL Server</span><span>T-SQL</span><span>Power BI</span><span>DAX</span><span>SSRS</span><span>Python</span><span>Pandas</span><span>NumPy</span><span>Scikit-learn</span><span>OpenCV</span><span>PostgreSQL</span><span>ETL</span><span>Query Optimization</span><span>Data Modeling</span>
-  </div></div>
+  <div class="wrap">
+    <div class="stackbar rv">
+      <div class="sb"><small>01 · Query</small><b>SQL Server</b><span>T-SQL · Indexing · Execution plans</span></div>
+      <div class="sb"><small>02 · Report</small><b>Power BI</b><span>DAX · SSRS · Excel</span></div>
+      <div class="sb"><small>03 · Automate</small><b>Python</b><span>Pandas · NumPy · ETL</span></div>
+      <div class="sb"><small>04 · Model</small><b>Machine Learning</b><span>Scikit-learn · OpenCV · CNN</span></div>
+    </div>
+  </div>
 </header>
 
 <!-- ABOUT -->
-<section id="about">
+<section id="about" aria-labelledby="about-title">
   <div class="wrap">
-    <div class="sh rv"><div><span class="eyebrow">About</span><h2>The analyst behind the numbers</h2></div><p>Database owner, report builder, automation fan.</p></div>
+    <div class="sh rv"><div><span class="eyebrow">About</span><h2 id="about-title">The analyst behind the numbers</h2></div><p>Database owner, report builder, automation fan.</p></div>
     <div class="about">
       <div class="card txt rv">
         <p>I'm a B.Tech Computer Science graduate who started in data as an intern and now looks after the database of a <b>live survey and panel platform</b>. My job is to make sure the numbers are right, fast to query and easy for non-technical teams to read.</p>
@@ -341,11 +400,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
 </section>
 
 <!-- PROJECTS -->
-<section id="projects">
+<section id="projects" aria-labelledby="projects-title">
   <div class="wrap">
-    <div class="sh rv"><div><span class="eyebrow">Projects</span><h2>Built, running and planned</h2></div><p>Production work first, then ML projects. Dashed cards are planned builds I haven't started yet.</p></div>
-    <div class="filters rv" id="filters">
-      <button class="on" data-f="all">All</button><button data-f="prod">Production</button><button data-f="ml">ML &amp; AI</button><button data-f="auto">Automation</button><button data-f="plan">Planned</button>
+    <div class="sh rv"><div><span class="eyebrow">Projects</span><h2 id="projects-title">Built, running and planned</h2></div><p>Production work first, then ML projects. Dashed cards are planned builds I haven't started yet.</p></div>
+    <div class="filters rv" id="filters" role="group" aria-label="Filter projects">
+      <button class="on" data-f="all" aria-pressed="true">All</button><button data-f="prod">Production</button><button data-f="ml">ML &amp; AI</button><button data-f="auto">Automation</button><button data-f="plan">Planned</button>
     </div>
     <div class="pgrid" id="plist">
 
@@ -353,11 +412,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
         <div>
           <span class="tag"><i></i>Live in production</span>
           <h3>simplisyt.com: database &amp; reporting</h3>
-          <p>A multi-module SQL Server schema covering surveys, polls, ideas, project management and panel applications. Business logic sits in reusable <b>stored procedures and views</b>, so every report reads from one consistent layer. Dashboards on top track response status, pre-screening, project performance and client/supplier revenue.</p>
+          <ul class="bul">
+            <li><b>Schema:</b> multi-module SQL Server database covering surveys, polls, ideas, project management and panel applications.</li>
+            <li><b>Logic layer:</b> reusable stored procedures and views, so every report reads the same numbers.</li>
+            <li><b>Reporting:</b> SSRS and Power BI dashboards for response status, pre-screening, project performance and client/supplier revenue.</li>
+          </ul>
           <div class="chips"><span class="chip a">SQL Server</span><span class="chip">T-SQL</span><span class="chip">Indexing</span><span class="chip">Power BI</span><span class="chip">SSRS</span></div>
           <a class="btn sm" href="https://simplisyt.com/" target="_blank" rel="noopener">Visit simplisyt.com ↗</a>
         </div>
-        <div class="viz"><svg viewBox="0 0 400 280" aria-label="Schema diagram">
+        <div class="viz" aria-hidden="true"><svg focusable="false" viewBox="0 0 400 280">
           <g class="s flow"><path d="M200 140 L82 58M200 140 L318 58M200 140 L82 222M200 140 L318 222"/></g>
           <rect x="138" y="112" width="124" height="56" rx="12" class="fa pulse"/>
           <text x="200" y="136" text-anchor="middle" style="fill:var(--on-lime);font-weight:600">Projects</text>
@@ -370,7 +433,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
       </article>
 
       <article class="card pc rv" data-c="prod auto">
-        <div class="viz"><svg viewBox="0 0 300 150"><rect x="24" y="44" width="94" height="62" rx="10" class="s"/><text x="71" y="80" text-anchor="middle">SSRS</text>
+        <div class="viz" aria-hidden="true"><svg focusable="false" viewBox="0 0 300 150"><rect x="24" y="44" width="94" height="62" rx="10" class="s"/><text x="71" y="80" text-anchor="middle">SSRS</text>
           <path class="a flow" d="M128 75 H172"/><path class="a" d="M164 67 L174 75 L164 83"/>
           <rect x="182" y="44" width="94" height="62" rx="10" class="fa"/><text x="229" y="80" text-anchor="middle" style="fill:var(--on-lime);font-weight:600">Power BI</text></svg></div>
         <span class="tag"><i></i>Reporting</span>
@@ -380,7 +443,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
       </article>
 
       <article class="card pc rv d1" data-c="auto">
-        <div class="viz"><svg viewBox="0 0 300 150">
+        <div class="viz" aria-hidden="true"><svg focusable="false" viewBox="0 0 300 150">
           <ellipse cx="74" cy="46" rx="34" ry="11" class="s"/><path class="s" d="M40 46v44c0 6 15 11 34 11s34-5 34-11V46"/><path class="s" d="M40 68c0 6 15 11 34 11s34-5 34-11"/><text x="74" y="130" text-anchor="middle">SQL Server</text>
           <path class="a flow" d="M126 74 H174"/><path class="a" d="M166 66 L176 74 L166 82"/>
           <ellipse cx="226" cy="46" rx="34" ry="11" class="a"/><path class="a" d="M192 46v44c0 6 15 11 34 11s34-5 34-11V46"/><path class="a" d="M192 68c0 6 15 11 34 11s34-5 34-11"/><text x="226" y="130" text-anchor="middle">PostgreSQL</text></svg></div>
@@ -391,7 +454,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
       </article>
 
       <article class="card pc rv d2" data-c="ml">
-        <div class="viz"><svg viewBox="0 0 300 150">
+        <div class="viz" aria-hidden="true"><svg focusable="false" viewBox="0 0 300 150">
           <g class="s" opacity=".5"><path d="M46 40L104 30M46 40L104 94M46 75L104 62M46 75L104 124M46 110L104 94M46 110L104 62M116 30L174 48M116 62L174 80M116 94L174 112M116 124L174 112M116 62L174 48M186 48L241 75M186 80L241 75M186 112L241 75"/></g>
           <g class="fv"><circle cx="40" cy="40" r="6"/><circle cx="40" cy="75" r="6"/><circle cx="40" cy="110" r="6"/></g>
           <g class="fa"><circle cx="110" cy="30" r="6"/><circle cx="110" cy="62" r="6"/><circle cx="110" cy="94" r="6"/><circle cx="110" cy="124" r="6"/></g>
@@ -404,7 +467,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
       </article>
 
       <article class="card pc rv" data-c="ml">
-        <div class="viz"><svg viewBox="0 0 300 150">
+        <div class="viz" aria-hidden="true"><svg focusable="false" viewBox="0 0 300 150">
           <g class="s"><path d="M150 30 L80 75M150 30 L220 75M80 75 L45 118M80 75 L115 118M220 75 L185 118M220 75 L255 118"/></g>
           <rect x="116" y="14" width="68" height="26" rx="8" class="fa"/><text x="150" y="31" text-anchor="middle" style="fill:var(--on-lime)">interest?</text>
           <rect x="52" y="62" width="56" height="26" rx="8" class="fv"/><text x="80" y="79" text-anchor="middle" style="fill:#fff">skills</text>
@@ -417,7 +480,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
       </article>
 
       <article class="card pc rv d1" data-c="ml">
-        <div class="viz"><svg viewBox="0 0 300 150">
+        <div class="viz" aria-hidden="true"><svg focusable="false" viewBox="0 0 300 150">
           <g class="s" opacity=".3"><path d="M20 120H280M20 90H280M20 60H280M20 30H280"/></g>
           <rect x="175" y="14" width="105" height="116" fill="var(--violet)" opacity=".1"/>
           <path class="a" d="M20 105 C50 90 70 98 100 72 S150 62 175 50"/>
@@ -430,7 +493,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
       </article>
 
       <article class="card pc rv d2" data-c="ml">
-        <div class="viz"><svg viewBox="0 0 300 150">
+        <div class="viz" aria-hidden="true"><svg focusable="false" viewBox="0 0 300 150">
           <g class="a" style="stroke-width:3"><path d="M96 38v-14h14M204 38v-14h-14M96 112v14h14M204 112v14h-14"/></g>
           <g class="fa"><circle cx="150" cy="58" r="12"/><rect x="132" y="74" width="36" height="34" rx="10"/></g>
           <g class="fv"><circle cx="124" cy="60" r="3" class="pulse"/><circle cx="176" cy="60" r="3" class="pulse"/><circle cx="116" cy="82" r="3" class="pulse"/><circle cx="184" cy="82" r="3" class="pulse"/></g>
@@ -442,7 +505,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
       </article>
 
       <article class="card pc plan rv" data-c="plan ml">
-        <div class="viz"><svg viewBox="0 0 300 150">
+        <div class="viz" aria-hidden="true"><svg focusable="false" viewBox="0 0 300 150">
           <g class="s" opacity=".3"><path d="M20 120H280"/></g>
           <g class="fv"><rect x="34" y="70" width="22" height="50" rx="4"/><rect x="68" y="56" width="22" height="64" rx="4"/><rect x="102" y="78" width="22" height="42" rx="4"/><rect x="136" y="44" width="22" height="76" rx="4"/></g>
           <g class="fo"><rect x="170" y="92" width="22" height="28" rx="4"/><rect x="204" y="100" width="22" height="20" rx="4"/><rect x="238" y="106" width="22" height="14" rx="4"/></g>
@@ -454,7 +517,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
       </article>
 
       <article class="card pc plan rv d1" data-c="plan">
-        <div class="viz"><svg viewBox="0 0 300 150">
+        <div class="viz" aria-hidden="true"><svg focusable="false" viewBox="0 0 300 150">
           <g class="s" opacity=".3"><path d="M30 20V125H280"/></g>
           <g class="fa"><circle cx="210" cy="36" r="5"/><circle cx="226" cy="50" r="5"/><circle cx="198" cy="52" r="5"/><circle cx="238" cy="34" r="5"/></g>
           <g class="fv"><circle cx="130" cy="70" r="5"/><circle cx="148" cy="84" r="5"/><circle cx="116" cy="86" r="5"/><circle cx="142" cy="62" r="5"/><circle cx="160" cy="76" r="5"/></g>
@@ -467,7 +530,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
       </article>
 
       <article class="card pc plan rv d2" data-c="plan auto">
-        <div class="viz"><svg viewBox="0 0 300 150">
+        <div class="viz" aria-hidden="true"><svg focusable="false" viewBox="0 0 300 150">
           <g class="s"><rect x="40" y="22" width="220" height="26" rx="8"/><rect x="40" y="62" width="220" height="26" rx="8"/><rect x="40" y="102" width="220" height="26" rx="8"/></g>
           <circle cx="58" cy="35" r="6" class="fa"/><text x="74" y="39">null check</text><text x="244" y="39" text-anchor="end" style="fill:var(--lime)">pass</text>
           <circle cx="58" cy="75" r="6" class="fa"/><text x="74" y="79">duplicate keys</text><text x="244" y="79" text-anchor="end" style="fill:var(--lime)">pass</text>
@@ -483,9 +546,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
 </section>
 
 <!-- EXPERIENCE -->
-<section id="experience">
+<section id="experience" aria-labelledby="experience-title">
   <div class="wrap">
-    <div class="sh rv"><div><span class="eyebrow">Experience</span><h2>Where I've worked</h2></div><p>From internship to owning a production database.</p></div>
+    <div class="sh rv"><div><span class="eyebrow">Experience</span><h2 id="experience-title">Where I've worked</h2></div><p>From internship to owning a production database.</p></div>
     <div class="tl">
       <div class="card job rv">
         <div><div class="when">MAR 2025 — PRESENT</div><h3>Data Analyst</h3><div class="org">TeamArcs Technologies Pvt. Ltd.</div></div>
@@ -510,9 +573,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
 </section>
 
 <!-- DEMO -->
-<section id="demo">
+<section id="demo" aria-labelledby="demo-title">
   <div class="wrap">
-    <div class="sh rv"><div><span class="eyebrow">Live demo</span><h2>Survey operations dashboard</h2></div><p>The kind of KPIs I build for the platform. Change a filter and it recalculates.</p></div>
+    <div class="sh rv"><div><span class="eyebrow">Live demo</span><h2 id="demo-title">Survey operations dashboard</h2></div><p>The kind of KPIs I build for the platform. Change a filter and it recalculates.</p></div>
     <div class="card dash rv">
       <div class="dtools">
         <label>Module
@@ -531,9 +594,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
         <div class="kpi"><small>Revenue</small><b id="k5">$0</b></div>
       </div>
       <div class="charts">
-        <div class="cbox"><h4>Completes and revenue by month</h4><canvas id="c1"></canvas></div>
-        <div class="cbox"><h4>Response status</h4><canvas id="c2"></canvas></div>
-        <div class="cbox"><h4>Revenue by client</h4><canvas id="c3"></canvas></div>
+        <div class="cbox"><h4>Completes and revenue by month</h4><canvas id="c1" role="img" aria-label="Line chart of completes and revenue by month (synthetic data)"></canvas></div>
+        <div class="cbox"><h4>Response status</h4><canvas id="c2" role="img" aria-label="Doughnut chart of response status (synthetic data)"></canvas></div>
+        <div class="cbox"><h4>Revenue by client</h4><canvas id="c3" role="img" aria-label="Bar chart of revenue by client (synthetic data)"></canvas></div>
       </div>
       <div class="note">Synthetic data generated in your browser. This is not real simplisyt.com data.</div>
     </div>
@@ -568,20 +631,20 @@ b <b>AS</b> (<b>SELECT</b> ProjectId, <b>SUM</b>(Amount) Rev
 </section>
 
 <!-- SKILLS -->
-<section id="skills">
+<section id="skills" aria-labelledby="skills-title">
   <div class="wrap">
-    <div class="sh rv"><div><span class="eyebrow">Skills</span><h2>What I work with, and where</h2></div><p>Pick a category. Each skill says where I actually use it.</p></div>
+    <div class="sh rv"><div><span class="eyebrow">Skills</span><h2 id="skills-title">What I work with, and where</h2></div><p>Pick a category. Each skill says where I actually use it.</p></div>
     <div class="skx rv">
       <div class="tabs" id="stabs" role="tablist"></div>
-      <div class="panel card" id="spanel"><div class="ph"><h3 id="sTitle"></h3><p id="sDesc"></p></div><div class="tiles" id="stiles"></div></div>
+      <div class="panel card" id="spanel" role="tabpanel" aria-live="polite"><div class="ph"><h3 id="sTitle"></h3><p id="sDesc"></p></div><div class="tiles" id="stiles"></div></div>
     </div>
   </div>
 </section>
 
 <!-- CREDENTIALS -->
-<section id="credentials">
+<section id="credentials" aria-labelledby="credentials-title">
   <div class="wrap">
-    <div class="sh rv"><div><span class="eyebrow">Credentials</span><h2>Learning &amp; recognition</h2></div><p>Certifications, education and awards.</p></div>
+    <div class="sh rv"><div><span class="eyebrow">Credentials</span><h2 id="credentials-title">Learning &amp; recognition</h2></div><p>Certifications, education and awards.</p></div>
     <div class="cgrid">
       <div class="card rv">
         <div class="lbl">Certifications</div>
@@ -608,11 +671,11 @@ b <b>AS</b> (<b>SELECT</b> ProjectId, <b>SUM</b>(Amount) Rev
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
+<section id="contact" aria-labelledby="contact-title">
   <div class="wrap">
     <div class="card cta-card rv">
       <span class="eyebrow" style="justify-content:center">Contact</span>
-      <h2>Have data that needs a home?</h2>
+      <h2 id="contact-title">Have data that needs a home?</h2>
       <p>If you need an analyst who can own the database, build the dashboard and automate the pipeline, let's talk.</p>
       <div class="btns">
         <a class="btn p" href="mailto:pinkygkp525@gmail.com">pinkygkp525@gmail.com</a>
@@ -675,7 +738,7 @@ document.querySelectorAll('.card').forEach(c=>c.addEventListener('pointermove',e
 
 // project filters
 document.querySelectorAll('#filters button').forEach(b=>b.onclick=()=>{
-  document.querySelectorAll('#filters button').forEach(x=>x.classList.toggle('on',x===b));
+  document.querySelectorAll('#filters button').forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',x===b)});
   document.querySelectorAll('#plist .pc').forEach(p=>{
     const show=b.dataset.f==='all'||p.dataset.c.split(' ').includes(b.dataset.f);
     p.classList.toggle('hide',!show);
@@ -690,6 +753,16 @@ addEventListener('scroll',()=>{
   let i=-1;ss.forEach((s,k)=>{if(s.getBoundingClientRect().top<innerHeight*.4)i=k});
   ls.forEach((a,k)=>a.classList.toggle('on',k===i));
 },{passive:true});
+
+// resume dropdown (keyboard accessible: click, Esc to close, click outside)
+(function(){
+  const btn=document.getElementById('ddBtn'),menu=document.getElementById('ddMenu');
+  const set=o=>{menu.hidden=!o;btn.setAttribute('aria-expanded',o)};
+  btn.addEventListener('click',e=>{e.stopPropagation();set(menu.hidden)});
+  document.addEventListener('click',e=>{if(!menu.hidden&&!menu.contains(e.target))set(false)});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!menu.hidden){set(false);btn.focus()}});
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>set(false)));
+})();
 
 // skills explorer
 (function(){
@@ -737,14 +810,14 @@ addEventListener('scroll',()=>{
   const tabs=document.getElementById('stabs'),tiles=document.getElementById('stiles');
   const show=i=>{
     const c=D[i];
-    tabs.querySelectorAll('.tab').forEach((b,k)=>{b.classList.toggle('on',k===i);b.setAttribute('aria-selected',k===i)});
+    tabs.querySelectorAll('.tab').forEach((b,k)=>{b.classList.toggle('on',k===i);b.setAttribute('aria-selected',k===i);b.tabIndex=k===i?0:-1});
     document.getElementById('sTitle').textContent=c.n;document.getElementById('sDesc').textContent=c.d;
     tiles.innerHTML='';
     c.s.forEach((x,k)=>{const t=document.createElement('div');t.className='tile'+(x[2]?' core':'');t.style.animationDelay=(k*.06)+'s';
       t.innerHTML='<b></b><span></span>';t.querySelector('b').textContent=x[0];t.querySelector('span').textContent=x[1];tiles.appendChild(t)});
   };
   D.forEach((c,i)=>{const b=document.createElement('button');b.className='tab';b.type='button';b.setAttribute('role','tab');
-    b.innerHTML='<span class="ti"><svg viewBox="0 0 24 24">'+I[c.k]+'</svg></span><span>'+c.n+'<small>'+c.s.length+' skills</small></span>';
+    b.innerHTML='<span class="ti" aria-hidden="true"><svg viewBox="0 0 24 24">'+I[c.k]+'</svg></span><span>'+c.n+'<small>'+c.s.length+' skills</small></span>';
     b.onclick=()=>show(i);tabs.appendChild(b)});
   show(0);
 })();
